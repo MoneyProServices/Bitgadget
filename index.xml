@@ -5,15 +5,35 @@
     </ModulePrefs>
     <Content type="html" view="home">
         <![CDATA[
-      Hello, small world!
+      <div>
+    <h1>Hola</h1>
+    <p>Esto es una prueba</p>
+    <p id="elemento"></p>
+</div>
+<script>
+    let x,c;
+    x = 5;
+    c = x * x;
+    const element = document.getElementById("elementi");
+    element.text(c);
+</script>
     ]]>
     </Content>
     <Content type="html" view="canvas">
         <![CDATA[
-      <div> <h1>Hola</h1>
-      <p>Esto es una prueba</p></div>
-      <script>
-      let </script>
+      <div>
+    <h1>Hola</h1>
+    <p>Esto es una prueba</p>
+    <p id="elemento"></p>
+</div>
+<script>
+    let x,c;
+    x = 5;
+    c = x * x;
+    const element = document.getElementById("elementi");
+    element.text(c);
+</script>
+
     ]]>
     </Content>
 </Module>
