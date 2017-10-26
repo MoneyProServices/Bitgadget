@@ -5,13 +5,14 @@
     </ModulePrefs>
     <Content type="html" view="home">
         <![CDATA[
-      <div>
-    <h1>Hola</h1>
-    <p>Esto es una prueba</p>
+
+<div>
     <h5>Bitcoin</h5>
-    <p id="btc"></p>
+    <p>El precio del btc es <span id="btc"></span> y menos el 5% es <span id="btc5"> </span></p>
+
     <h5>Ethereum</h5>
-    <p id="eth"></p>
+    <p>El precio del eth es <span id="eth"></span> y menos el 5% es <span id="eth5"> </span></p>
+
 </div>
 <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -22,9 +23,13 @@
         let btc = data[0].price_usd;
         let eth = data[1].price_usd;
         $('#btc').text(btc)
+        $('#btc5').text((btc-(btc*0.05)).toFixed(2))
         $('#eth').text(eth)
+        $('#eth5').text((eth-(eth*0.05)).toFixed(2))
     });
 </script>
-    ]]>
+
+
+]]>
     </Content>
 </Module>
