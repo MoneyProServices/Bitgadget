@@ -8,18 +8,22 @@
       <div>
     <h1>Hola</h1>
     <p>Esto es una prueba</p>
-    <p id="elemento"></p>
+    <h5>Bitcoin</h5>
+    <p id="btc"></p>
+    <h5>Ethereum</h5>
+    <p id="eth"></p>
 </div>
 <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 <script>
-    let x,c;
-    x = 5;
-    c = x * x;
-    const element = $('#elemento');
-    element.text(c);
+    $.get( "https://api.coinmarketcap.com/v1/ticker/?limit=2", function( data ) {
+        let btc = data[0].price_usd;
+        let eth = data[1].price_usd;
+        $('#btc').text(btc)
+        $('#eth').text(eth)
+    });
 </script>
     ]]>
     </Content>
