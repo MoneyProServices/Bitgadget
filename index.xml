@@ -12,7 +12,7 @@
 
     <h5>Ethereum</h5>
     <p>El precio del eth es <span id="eth"></span> y menos el 5% es <span id="eth5"> </span></p>
-
+<p id="precios"></p>
 </div>
 <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -22,10 +22,19 @@
     $.get( "https://api.coinmarketcap.com/v1/ticker/?limit=2", function( data ) {
         let btc = data[0].price_usd;
         let eth = data[1].price_usd;
-        $('#btc').text(btc)
-        $('#btc5').text((btc-(btc*0.05)).toFixed(2))
-        $('#eth').text(eth)
-        $('#eth5').text((eth-(eth*0.05)).toFixed(2))
+        $('#btc').text(btc);
+        $('#btc5').text((btc-(btc*0.05)).toFixed(2));
+        $('#eth').text(eth);
+        $('#eth5').text((eth-(eth*0.05)).toFixed(2));
+    });
+    $.get('https://moneyproservices.000webhostapp.com/loaddata.php', function (data) {
+        $("#precios").append("LocalBitcoins<br>");
+        for (i = 0; i < data.precios.length; i++) {
+            $("#precios").append("Sell "+ (i + 1) +" <b>" +data.precios[i] + "Bsf.</b>");
+            $("#precios").append("<br>");
+        }
+        $("#precios").append("Sumatoria: " + data.total + "Bsf.<br>");
+        $("#precios").append("Promedio: " + data.promedio + "Bsf.");
     });
 </script>
 
